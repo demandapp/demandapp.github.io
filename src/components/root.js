@@ -99,7 +99,7 @@ export default class App extends LitElement {
         this.userdata.emails_sent += this.emailsToSend.length;
         this.userdata.date_last_sent = new Date();
         set('userdata', this.userdata);
-        loadData();
+        this.loadData();
         resolve(res);
       });
     })
@@ -182,9 +182,9 @@ export default class App extends LitElement {
         <div class="overview">
           <h2>Last Sent</h2>
           <h1 class="overview-last-sent-time">${this.lastSent}</h1>
-          <h2>${this.lastSent !== 'Never' ? html`Ago` : html`‍`}</h2>
+          <h2>${this.lastSent !== 'Never' ? html`Ago${this.lastSent[0] === '0' ? "! Send again soon!" : ""}` : html`‍`}</h2>
           ${this.loading ? html`` : html`<div class="overview-action">
-            <button class="send" @click=${this.sendEmails} ?disabled=${this.emailsToSend.length === 0}>${this.emailsToSend.length > 0 ? html`Send to ${this.emailsToSend.length}` : html`Send`}</button>
+            <button class="send" @click=${this.sendEmails} ?disabled=${this.emailsToSend.length === 0 || this.lastSent[0] === '0'}>${this.emailsToSend.length > 0 ? html`Send to ${this.emailsToSend.length}` : html`Send`}</button>
             <div class="overview-action-details">
               <span>${this.causes.length} Causes Selected</span>
               <a href="/manage" @click=${event => {
