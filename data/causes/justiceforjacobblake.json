@@ -1,0 +1,11 @@
+{
+  "name": "Justice for Jacob Blake",
+  "description": "29 year old Jacob Blake was shot 7 times in his back by police in Kenosha, Wisconsin, in front of his three children.",
+  "template": "My name is {name} and I am writing to demand justice for Jacob Blake.  Jacob Blake is currently in critical condition and fighting for his life after Kenosha police shot him 7 times in front of his three young children. This is inhumane, unacceptable, and representative of the deep rooted racism and police brutality within our community.<br><br><br>I am demanding that all police officers involved in the shooting be fired immediately and that the Kenosha District Attorney file appropriate charges and prosecute those involved to the fullest extent of the law.  I am asking you to use your position of power to do what is best for the community and to do what is best for the Blake family. I am counting on you to act now.<br><br>In Solidarity,<br><br>{name}",
+  "subject": "Justice for Jacob Blake",
+  "emails": [
+    "michael.graveley@da.wi.gov",
+    "mayor@kenosha.org",
+    "dgm398@kenoshapolice.com"
+  ]
+}

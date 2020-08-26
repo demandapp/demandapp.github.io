@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demand</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel='manifest' href='/manifest.json'>
+    <script src="/main.js"></script>
+    <link rel="stylesheet" href="/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,900;1,400;1,900&display=swap" rel="stylesheet"> 
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').then(reg => {
+          console.log('servivce worker:', reg);
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <dm-app></dm-app>
+    <pwa-install usecustom></pwa-install>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};document.dispatchEvent(new CustomEvent('gapi-loaded'))"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+  </body>
+</html>
