@@ -151,7 +151,7 @@ export default class App extends LitElement {
         if (this.timeSinceLastSent > 3600000) {
           this.lastSent = `${Math.floor(((new Date()).getTime() - userdata.date_last_sent.getTime()) / (1000 * 3600))} hours`;
         } else {
-          this.lastSent = `${Math.floor(((new Date()).getTime() - userdata.date_last_sent.getTime()) / (1000 * 60))} minutes`;
+          this.lastSent = `${Math.floor(((new Date()).getTime() - userdata.date_last_sent.getTime()) / (1000 * 60))} min`;
         }
       }
     } else {
@@ -202,7 +202,7 @@ export default class App extends LitElement {
         <div class="overview">
           <h2>Last Sent</h2>
           <h1 class="overview-last-sent-time">${this.lastSent}</h1>
-          <h2>${this.lastSent !== 'Never' ? html`Ago${this.timeSinceLastSent < 3600000 ? "! Send again soon!" : ""}` : html`‍`}</h2>
+          <h2>${this.lastSent !== 'Never' ? html`Ago${this.timeSinceLastSent < 3600000 ? ". Send again soon" : ""}` : html`‍`}</h2>
           ${this.loading ? html`` : html`<div class="overview-action">
             <button class="send" @click=${this.sendEmails} ?disabled=${this.emailsToSend.length === 0 || this.timeSinceLastSent < 3600000}>${this.emailsToSend.length > 0 ? html`Send to ${this.emailsToSend.length}` : html`Send`}</button>
             <div class="overview-action-details">
