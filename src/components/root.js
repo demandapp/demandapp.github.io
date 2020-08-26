@@ -39,7 +39,7 @@ export default class App extends LitElement {
   causes = [];
   emailsToSend = [];
 
-  timeSinceLastSent = 0;
+  timeSinceLastSent = 999999999999;
 
   @property() loading = true;
 
