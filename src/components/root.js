@@ -39,6 +39,8 @@ export default class App extends LitElement {
   causes = [];
   emailsToSend = [];
 
+  timeSinceLastSent = 0;
+
   @property() loading = true;
 
   @property() signedIn = false;
@@ -144,7 +146,14 @@ export default class App extends LitElement {
     this.userdata = userdata;
     if (this.userdata.date_last_sent !== undefined) {
       if (this.userdata.date_last_sent === 'Never') this.lastSent = 'Never';
-      else this.lastSent = `${Math.floor(((new Date()).getTime() - userdata.date_last_sent.getTime()) / (1000 * 3600))} hours`;
+      else {
+        this.timeSinceLastSent = (new Date()).getTime() - userdata.date_last_sent.getTime();
+        if (this.timeSinceLastSent > 3600000) {
+          this.lastSent = `${Math.floor(((new Date()).getTime() - userdata.date_last_sent.getTime()) / (1000 * 3600))} hours`;
+        } else {
+          this.lastSent = `${Math.floor(((new Date()).getTime() - userdata.date_last_sent.getTime()) / (1000 * 60))} minutes`;
+        }
+      }
     } else {
       this.lastSent = 'never';
     }
@@ -193,9 +202,9 @@ export default class App extends LitElement {
         <div class="overview">
           <h2>Last Sent</h2>
           <h1 class="overview-last-sent-time">${this.lastSent}</h1>
-          <h2>${this.lastSent !== 'Never' ? html`Ago${this.lastSent[0] === '0' ? "! Send again soon!" : ""}` : html`‍`}</h2>
+          <h2>${this.lastSent !== 'Never' ? html`Ago${this.timeSinceLastSent < 3600000 ? "! Send again soon!" : ""}` : html`‍`}</h2>
           ${this.loading ? html`` : html`<div class="overview-action">
-            <button class="send" @click=${this.sendEmails} ?disabled=${this.emailsToSend.length === 0 || this.lastSent[0] === '0'}>${this.emailsToSend.length > 0 ? html`Send to ${this.emailsToSend.length}` : html`Send`}</button>
+            <button class="send" @click=${this.sendEmails} ?disabled=${this.emailsToSend.length === 0 || this.timeSinceLastSent < 3600000}>${this.emailsToSend.length > 0 ? html`Send to ${this.emailsToSend.length}` : html`Send`}</button>
             <div class="overview-action-details">
               <span>${this.causes.length} Causes Selected</span>
               <a href="/manage" @click=${event => {
