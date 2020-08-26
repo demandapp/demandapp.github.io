@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
-    "build": "webpack && cp dist/index.html dist/404.html"
+    "build": "webpack && cp dist/index.html dist/404.html",
+    "deploy": "gh-pages dist -b master"
   },
   "author": "James Madden",
   "license": "MIT",
@@ -18,6 +19,7 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^4.0.0",
     "file-loader": "^6.0.0",
+    "gh-pages": "^3.1.0",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
     "url-loader": "^4.1.0",
