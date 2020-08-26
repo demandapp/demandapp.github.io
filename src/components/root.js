@@ -240,7 +240,7 @@ export default class App extends LitElement {
             <h2>Justice for Jacob Blake</h2>
             <p>29 year old Jacob Blake was shot 7 times in his back by police in Kenosha, Wisconsin, in front of his three children.</p>
           </a>
-          <div></div>
+          <div class="explore-card-offset"></div>
           <!-- <div class="explore-card coloured">
             <h2>View More</h2>
             <p>Explore even more causes you can help support today.</p>

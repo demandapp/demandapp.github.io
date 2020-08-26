@@ -71,7 +71,7 @@ export default class App extends LitElement {
                 </div>
               `;
             })}
-            <div></div>
+            <div class="explore-card-offset"></div>
           </div>
       </div>`;
   }
