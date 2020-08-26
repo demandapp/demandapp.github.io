@@ -1,0 +1,149 @@
+main {
+  background: #203A7D;
+  position: relative;
+}
+
+.overview {
+  box-sizing: border-box;
+  padding: 0 2rem;
+  height: 332px;
+  max-width: 386px;
+  margin: auto;
+  position: relative;
+  h2 {
+    margin: 0;
+  }
+  .overview-last-sent-time {
+    font-size: 3.75rem;
+    margin: 0;
+  }
+}
+
+.overview-action {
+  box-sizing: border-box;
+  padding: 18px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-width: 322px;
+  button {
+    width: 100%;
+    height: 102px;
+    font-size: 2rem;
+    font-weight: 800;
+    background: #EE4871;
+    border: none;
+    color: white;
+    cursor: pointer;
+    &:disabled {
+      background: #777;
+      color: white;
+    }
+  }
+}
+
+.overview-action-details {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img {
+    flex: 0 0 48px;
+    width: 48px;
+  }
+  span {
+    width: 100%;
+    font-size: 20px;
+  }
+}
+
+.explore {
+  position: relative;
+  padding: 30px;
+  max-width: 386px;
+  margin: auto;
+}
+
+.explore-card {
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 100%;
+  background: white;
+  color: black;
+  padding: 1rem;
+  cursor: pointer;
+  scroll-snap-align: center;
+  white-space: normal;
+
+  &.coloured {
+    background: #203A7D;
+    color: white;
+  }
+
+  * {
+    margin: 0;
+  }
+  h2 {
+    color: #EE4871;
+  }
+  p {
+    margin-top: 12px;
+    font-size: 1.25rem;
+  }
+}
+
+.carousel {
+  box-sizing: border-box;
+  position: relative;
+  left: -2rem;
+  white-space: nowrap;
+  width: calc(100% + 4rem);
+  overflow: auto;
+  overflow-x: auto;
+  padding: 0 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(100,100%);
+  grid-template-rows: 1fr;
+  overflow-x: auto;
+  grid-gap: 1rem;
+  -ms-scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
+}
+
+.property {
+  background: #EE4871;
+  padding: 0 8px;
+  font-weight: 800;
+}
+
+@keyframes placeholder {
+  0% {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0);
+  }
+}
+
+.loading {
+  .filler-bar {
+    animation: 2s linear 0s infinite alternate placeholder;
+  }
+}
+
+button.leave-cause-button {
+  margin-top: 16px;
+  width: 196px;
+  height: 48px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  background: #EE4871;
+  border: none;
+  color: white;
+  cursor: pointer;
+  &:disabled {
+    background: #777;
+    color: white;
+  }
+}

@@ -1,0 +1,61 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 194px);
+  background: #203A7D;
+}
+
+.demand-logo-container {
+  box-sizing: border-box;
+  padding-top: 78px;
+  padding-bottom: 60px;
+  width: 100%;
+  img {
+    display: block;
+    height: 78px;
+    margin: auto;
+  }
+}
+
+h2 {
+  margin: 0;
+  padding: 0 24px;
+}
+
+a {
+  position: absolute;
+  bottom: 48px;
+  padding: 0 24px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #EE4871;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 46px 50px;
+  width: 100%;
+  box-sizing: border-box;
+  button { 
+    width: 100%;
+    height: 102px;
+    font-size: 2rem;
+    font-weight: 800;
+    background: #EE4871;
+    border: none;
+    color: white;
+    cursor: pointer;
+    max-width: 386px;
+    margin: auto;
+  }
+}
+
+.header-content {
+  //position: relative;
+  width: 100%;
+  max-width: 386px;
+  margin: auto;
+}
