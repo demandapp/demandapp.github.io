@@ -74,7 +74,7 @@ export default class App extends LitElement {
     const plane = document.createElement('img');
     plane.classList.add('send-effect');
     plane.src = Airplane;
-    plane.style.top = `${Math.random() * (window.innerHeight - 256) + 128}px`;
+    plane.style.top = `${Math.random() * (window.innerHeight - 256) + 32}px`;
     document.body.appendChild(plane);
     setTimeout(() => document.body.removeChild(plane), 750);
   }
