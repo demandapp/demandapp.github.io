@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
     "build": "webpack && cp dist/index.html dist/404.html",
-    "deploy": "gh-pages dist -b master"
+    "deploy": "gh-pages -d dist -b master"
   },
   "author": "James Madden",
   "license": "MIT",
