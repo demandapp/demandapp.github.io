@@ -1,4 +1,6 @@
 # Beta Releases
+## 0.0.3
+- Rounded the corners of the headers and made the status bar lighter blue on iOS to match the rounded corners of the device.
 ## 0.0.2
 - Added animations
   - Plane effect for each email sent
