@@ -10,6 +10,7 @@ import './manage/manage.js';
 import RootStyles from './root.scss';
 
 import MoreIcon from '../assets/more_horiz.svg';
+import Airplane from '../assets/airplane.svg';
 
 const CLIENT_ID = '20615721953-fjqaoqci8r7kjrr83att8qv518ecme0j.apps.googleusercontent.com';
 const API_KEY = 'AIzaSyB7JAg5yxU7Nhb8t7NXRyfzEFuzXjcpcbo';
@@ -67,10 +68,23 @@ export default class App extends LitElement {
     });
   }
 
+  planeEffect () {
+    const plane = document.createElement('img');
+    plane.classList.add('send-effect');
+    plane.src = Airplane;
+    plane.style.top = `${Math.random() * (window.innerHeight - 256) + 128}px`;
+    document.body.appendChild(plane);
+    setTimeout(() => document.body.removeChild(plane), 750);
+  }
+
   async sendEmails() {
     this.sendButton.disabled = true;
     await Promise.all(this.emailsToSend.map(email  => {return this.sendEmail(email.email, email.subject, email.template)}));
     this.sendButton.disabled = false;
+    this.userdata.emails_sent += this.emailsToSend.length;
+    this.userdata.date_last_sent = new Date();
+    set('userdata', this.userdata);
+    this.loadData();
   }
 
   sendEmail (recipientEmail, subject, content) {
@@ -96,10 +110,7 @@ export default class App extends LitElement {
         }
       }).execute(res => {
         console.log('Email sent result', res);
-        this.userdata.emails_sent += this.emailsToSend.length;
-        this.userdata.date_last_sent = new Date();
-        set('userdata', this.userdata);
-        this.loadData();
+        this.planeEffect();
         resolve(res);
       });
     })
