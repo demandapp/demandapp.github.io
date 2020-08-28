@@ -6,6 +6,7 @@ import './onboard/onboard.js';
 import './cause/cause.js';
 import './privacy/privacy.js';
 import './manage/manage.js';
+import './loading/loading.js';
 
 import RootStyles from './root.scss';
 
@@ -42,6 +43,7 @@ export default class App extends LitElement {
   timeSinceLastSent = 999999999999;
 
   @property() loading = true;
+  @property() loadingAuth = true;
 
   @property() signedIn = false;
 
@@ -167,8 +169,8 @@ export default class App extends LitElement {
       console.log('gapi loaded');
       gapi.load('client:auth2', this._initClient);
     });
-    document.addEventListener('dm-signedin', () => this.signedIn = true);
-    document.addEventListener('dm-signedout', () => this.signedIn = false);
+    document.addEventListener('dm-signedin', () => {this.signedIn = true; this.loadingAuth = false});
+    document.addEventListener('dm-signedout', () => {this.signedIn = false; this.loadingAuth = false});
     window.addEventListener('popstate', () => {this.reload++, this.loadData();});
 
    this.loadData();
@@ -182,6 +184,10 @@ export default class App extends LitElement {
 
     if (location.pathname.split('/')[1] === 'privacy') {
       return html`<dm-privacy></dm-privacy>`;
+    }
+
+    if (this.loadingAuth) {
+      return html`<dm-loading></dm-loading>`;
     }
 
     if (!this.signedIn) {

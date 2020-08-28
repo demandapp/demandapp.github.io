@@ -1,4 +1,6 @@
 # Beta Releases
+## 0.0.5 / 20.08.28
+- Add loading animation while auth state is figured out
 ## 0.0.4 / 20.08.27
 - Converted text in logo to paths so that it renders properly in safari.
 ## 0.0.3 / 20.08.26
