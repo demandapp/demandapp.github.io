@@ -16,9 +16,6 @@ export default class App extends LitElement {
   renderAirplanePosition () {
     this.airplane.style.transform = `translate(${Math.sin(this.degree * (Math.PI / 180)) * 256 - 169}px, ${Math.cos(this.degree * (Math.PI / 180)) * 256}px)`; //rotate(${this.degree * 360 - 90}deg)
 
-    console.clear()
-    console.log(this.degree);
-
     this.degree += 1.25;
 
     if (this.degree >= 360) this.degree = 0;
